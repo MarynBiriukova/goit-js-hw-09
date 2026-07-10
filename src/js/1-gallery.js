@@ -79,48 +79,7 @@ const gallery = new SimpleLightbox('.gallery a', {
         captionsData: 'alt', 
         captionDelay: 250,    
 });
-gallery.on('show.simplelightbox', () => {
-  
-  setTimeout(() => {
-    const modalForm = document.querySelector('.sl-wrapper .sl-image');
-    const counter = document.querySelector('.sl-wrapper .sl-counter');
-    const closeBtn = document.querySelector('.sl-wrapper .sl-close');
-    const prev = document.querySelector('.sl-wrapper .sl-prev');
-    const next = document.querySelector('.sl-wrapper .sl-next');
 
-    if (modalForm) {
-        
-        if (counter)  modalForm.appendChild(counter); 
-        if (closeBtn)  modalForm.appendChild(closeBtn); 
-        if (prev)  modalForm.appendChild(prev); 
-        if (next) modalForm.appendChild(next); 
-    }
-  }, 10); 
-});
-
-gallery.on('close.simplelightbox', () => {
-    const wrapper = document.querySelector('.sl-wrapper');
-    
-   // console.dir(wrapper);
-  const modalForm = document.querySelector('.sl-wrapper .sl-image');
-  const navigation = document.querySelector('.sl-wrapper .sl-navigation');
-  
-  const counter = document.querySelector('.sl-wrapper .sl-counter');
-  const closeBtn = document.querySelector('.sl-wrapper .sl-close');
-  const prevBtn = document.querySelector('.sl-wrapper .sl-prev');
-  const nextBtn = document.querySelector('.sl-wrapper .sl-next');
-
-  if (wrapper && modalForm) {
-    
-    if (counter) wrapper.insertBefore(counter, modalForm);
-    if (closeBtn) wrapper.appendChild(closeBtn);
-  }
-
-  if (navigation) {
-    if (prevBtn) navigation.appendChild(prevBtn);
-    if (nextBtn) navigation.appendChild(nextBtn);
-  }
-});
 
 function createItemGal(arr) {
     const i = 0;

@@ -40,9 +40,11 @@ function onFormSubmit(evt) {
 }
 
 function onFormInput(evt) {
+    const inputName = evt.target.name;
+    console.log(evt.target.value);
   
-  formData.email = form.elements.email.value.trim();
-  formData.message = form.elements.message.value.trim();
+  formData[inputName] = evt.target.value.trim();
+ // formData.message = form.elements.message.value.trim();
   
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));   
     
@@ -54,9 +56,13 @@ function popForm() {
     if (savedFormData) {
         const parseData = JSON.parse(savedFormData);
         
-        if (parseData.email) form.elements.email.value = parseData.email.trim();
-        if (parseData.message) form.elements.message.value = parseData.message.trim();
+        if (parseData.email) 
+            formData.email=form.elements.email.value = parseData.email.trim();
+        
+        if (parseData.message) 
+            formData.message=form.elements.message.value = parseData.message.trim();
+        
         
     }
-    
+    //console.log(formData);  
 }
